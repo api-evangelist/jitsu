@@ -1,0 +1,112 @@
+aid: jitsu
+url: https://raw.githubusercontent.com/api-evangelist/jitsu/refs/heads/main/apis.yml
+name: Jitsu
+kind: company
+description: Jitsu is an open-source, real-time event data pipeline and customer
+  data platform (a Segment alternative). It collects events from websites, apps,
+  and servers and streams them to data warehouses and other destinations. Jitsu is
+  available as MIT-licensed self-hosted software (github.com/jitsucom/jitsu) and as
+  a managed Jitsu Cloud (use.jitsu.com); both expose the same HTTP event ingestion
+  API authenticated with a Write Key.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Event Data
+- CDP
+- Data Pipeline
+- Analytics
+- Open Source
+- Ingestion
+created: '2026-06-21'
+modified: '2026-06-21'
+specificationVersion: '0.19'
+apis:
+- aid: jitsu:event-ingestion-api
+  name: Jitsu Event Ingestion API (Track / Identify / Page)
+  tags:
+  - Event Data
+  - Ingestion
+  - Track
+  - Identify
+  - Page
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://jitsu.com/docs/sending-data/http
+  baseURL: https://use.jitsu.com
+  properties:
+  - url: https://jitsu.com/docs/sending-data/http
+    type: Documentation
+  - url: https://jitsu.com/docs/sending-data/http
+    type: APIReference
+  - url: openapi/jitsu-openapi.yml
+    type: OpenAPI
+  - url: collections/jitsu.postman_collection.json
+    type: PostmanCollection
+  - url: collections/jitsu.opencollection.json
+    type: OpenCollection
+  description: Real-time event ingestion endpoint at POST /api/s/{type} (and the
+    server-to-server variant /api/s/s2s/{type}) for page, track, identify, and group
+    events. Payloads follow the Segment-style event shape (type, event, properties,
+    userId, anonymousId, context). Authenticated with a Write Key passed via the
+    X-Write-Key header, HTTP Basic auth, or a writeKey query parameter.
+- aid: jitsu:bulk-batch-api
+  name: Jitsu Bulk / Batch API
+  tags:
+  - Event Data
+  - Bulk
+  - Batch
+  - Ingestion
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://jitsu.com/docs/sending-data/http
+  baseURL: https://use.jitsu.com
+  properties:
+  - url: https://jitsu.com/docs/sending-data/http
+    type: Documentation
+  - url: openapi/jitsu-openapi.yml
+    type: OpenAPI
+  - url: collections/jitsu.postman_collection.json
+    type: PostmanCollection
+  - url: collections/jitsu.opencollection.json
+    type: OpenCollection
+  description: Batch ingestion via POST /v1/batch using the Segment-compatible batch
+    envelope (a batch array of events), plus a bulk archive endpoint POST /api/s/bulk
+    that accepts large multipart uploads of events for synchronous loading. Useful
+    for server-side backfills and high-volume sends in a single request.
+- aid: jitsu:configuration-management-api
+  name: Jitsu Configuration / Management
+  tags:
+  - Configuration
+  - Management
+  - Sources
+  - Destinations
+  - Connections
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://jitsu.com/docs
+  baseURL: https://use.jitsu.com
+  properties:
+  - url: https://jitsu.com/docs
+    type: Documentation
+  - url: openapi/jitsu-openapi.yml
+    type: OpenAPI
+  description: Configuration surface for managing workspaces, sites/streams, write
+    keys, destinations, and connections. In self-hosted Jitsu this is backed by the
+    Console application and its configuration store; in Jitsu Cloud it is managed
+    through the use.jitsu.com console. Programmatic management is not a stable,
+    broadly published public REST contract, so it is documented here at the platform
+    level.
+common:
+- type: GitHubOrganization
+  url: https://github.com/jitsucom
+- type: LinkedIn
+  url: https://www.linkedin.com/company/jitsu-com
+- type: Website
+  url: https://jitsu.com/
+- type: Documentation
+  url: https://jitsu.com/docs
+- type: Plans
+  url: plans/jitsu-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/jitsu-rate-limits.yml
+- type: FinOps
+  url: finops/jitsu-finops.yml
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

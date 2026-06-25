@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jitsu Event Ingestion API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Write-Key",
+      "value": "{{writeKey}}",
+      "in": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ingestion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest a track event.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/track",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"type\": \"track\",\n  \"event\": \"Signup\",\n  \"userId\": \"user-123\",\n  \"properties\": { \"plan\": \"business\" }\n}"
+            }
+          },
+          "docs": "Sends a single track event to POST /api/s/{type}."
+        },
+        {
+          "info": {
+            "name": "Ingest an identify event.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/identify",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"type\": \"identify\",\n  \"userId\": \"user-123\",\n  \"traits\": { \"email\": \"user@example.com\" }\n}"
+            }
+          },
+          "docs": "Identifies a user via POST /api/s/{type}."
+        },
+        {
+          "info": {
+            "name": "Ingest a page event.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/page",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"type\": \"page\",\n  \"anonymousId\": \"anon-abc\",\n  \"properties\": { \"path\": \"/pricing\" }\n}"
+            }
+          },
+          "docs": "Records a page view via POST /api/s/{type}."
+        },
+        {
+          "info": {
+            "name": "Ingest a server-to-server event.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/s2s/track",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"type\": \"track\",\n  \"event\": \"OrderCompleted\",\n  \"userId\": \"user-123\"\n}"
+            }
+          },
+          "docs": "Server-to-server ingestion via POST /api/s/s2s/{type}."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Batch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest a batch of events (Segment-compatible).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/v1/batch",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"batch\": [\n    { \"type\": \"track\", \"event\": \"Signup\", \"userId\": \"user-123\" },\n    { \"type\": \"page\", \"anonymousId\": \"anon-abc\" }\n  ]\n}"
+            }
+          },
+          "docs": "Sends a Segment-compatible batch to POST /v1/batch."
+        },
+        {
+          "info": {
+            "name": "Bulk-load an archive of events.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/bulk?fallback=true",
+            "body": {
+              "type": "multipart-form",
+              "data": []
+            }
+          },
+          "docs": "Uploads a multipart archive (field name \"file\") to POST /api/s/bulk for synchronous loading."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

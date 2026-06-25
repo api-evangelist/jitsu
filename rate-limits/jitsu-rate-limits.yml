@@ -1,0 +1,67 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Jitsu
+providerId: jitsu
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Event Data
+- CDP
+- Data Pipeline
+- Open Source
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Jitsu does not publish fixed numeric request-per-second rate limits for its
+  HTTP event ingestion API. For self-hosted (MIT) deployments, throughput is
+  bounded only by the infrastructure you provision for the Ingest service and
+  downstream Bulker/destinations. For Jitsu Cloud, the practical limit is the
+  monthly active-event volume of your plan (200k on Free, 2M on Business, then
+  metered overage); the bulk endpoint can accept on the order of tens of
+  thousands of events in a single request. Specific per-account throttling
+  values are not documented in a public artifact.
+notes: >-
+  Verify on reconciliation whether Jitsu Cloud applies burst/RPS throttling at
+  the ingestion edge. reconciled is false because no numeric per-second limits
+  are publicly documented.
+sources:
+- https://jitsu.com/docs/sending-data/http
+- https://jitsu.com/pricing
+- https://github.com/jitsucom/jitsu
+- https://github.com/jitsucom/bulker
+responseCodes:
+  throttled: 429
+limits:
+- name: Active Events Per Month (Cloud)
+  scope: account
+  metric: events
+  limit: plan-based (200k Free / 2M Business / custom Enterprise)
+  notes: Only events that reach at least one destination count; filtered events are free.
+- name: Bulk Request Size
+  scope: request
+  metric: events
+  limit: ~50,000 events per bulk HTTP request
+  notes: Approximate per-request capacity for POST /api/s/bulk archive uploads.
+- name: Ingestion Throughput (Self-Hosted)
+  scope: deployment
+  metric: events
+  limit: bounded by provisioned infrastructure
+  notes: No fixed limit; scale the Ingest service and destinations to your needs.
+- name: Connector Syncs
+  scope: account
+  metric: syncs
+  limit: plan-based (1/day Free / 5/month Business / unlimited Enterprise)
+  notes: Applies to managed connector source syncs, not event ingestion.
+policies:
+- name: Plan-Based Volume
+  description: Cloud ingestion is governed by monthly active-event volume rather than fixed RPS limits.
+- name: Filtering To Reduce Volume
+  description: Use Functions to drop unwanted events before they count as active/billable.
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor 429 / Retry-After responses.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

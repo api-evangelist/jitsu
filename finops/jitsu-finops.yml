@@ -1,0 +1,105 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Jitsu
+providerId: jitsu
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Event Data
+- CDP
+- Data Pipeline
+- Open Source
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Jitsu spend. Self-hosted Jitsu (MIT) has no license cost; its
+  cost is the infrastructure you run (compute, storage, downstream warehouse).
+  Jitsu Cloud is metered on active events - events delivered to at least one
+  destination - with a free monthly allowance, a flat Business subscription
+  plus per-1M-event overage, and per-monthly-active-sync overage for
+  connectors. Filtered events are free, making event filtering the primary
+  cost lever.
+notes: >-
+  Verify current Cloud rates against jitsu.com/pricing on reconciliation.
+  reconciled is false because some overage and retention details are not fully
+  confirmed.
+sources:
+- https://jitsu.com/pricing
+- https://jitsu.com/docs
+- https://github.com/jitsucom/jitsu
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Jitsu
+serviceCategory: Analytics
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Jitsu Cloud
+  ServiceCategory: Analytics
+  ProviderName: Jitsu
+  PublisherName: Jitsu
+  InvoiceIssuerName: Jitsu
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: active_events
+  description: Events delivered to at least one destination, billed against the monthly included volume and per-1M overage.
+  unit: events
+  aggregation: sum
+  dimensions:
+  - account
+  - workspace
+  - destination
+- name: filtered_events
+  description: Captured events dropped before delivery (e.g. by Functions); free and not billed.
+  unit: events
+  aggregation: sum
+  dimensions:
+  - account
+  - workspace
+- name: monthly_active_syncs
+  description: Connector source syncs run in the month, billed per active sync beyond the plan allowance.
+  unit: syncs
+  aggregation: sum
+  dimensions:
+  - account
+  - connector
+- name: base_subscription
+  description: Flat monthly Business subscription fee.
+  unit: subscription
+  aggregation: max
+  dimensions:
+  - account
+- name: self_hosted_infrastructure
+  description: Compute, storage, and warehouse cost of running self-hosted Jitsu (no Jitsu license fee).
+  unit: usd
+  aggregation: sum
+  dimensions:
+  - deployment
+principles:
+- name: Visibility
+  description: Track active vs. filtered event volume per workspace and destination in the Jitsu console.
+- name: Allocation
+  description: Separate workspaces/sites per team or product; map active-event volume to cost centers.
+- name: Optimization
+  description: Filter unwanted events with Functions so they never count as active; self-host under MIT for unlimited volume when infra is cheaper than per-event Cloud rates.
+- name: Accountability
+  description: Assign owners per workspace; review monthly active-event burn and sync counts against budget.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,149 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Jitsu
+providerId: jitsu
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- Event Data
+- CDP
+- Data Pipeline
+- Open Source
+- Plans
+description: >-
+  Jitsu is available two ways. The MIT-licensed open-source distribution
+  (github.com/jitsucom/jitsu) is free to self-host with no usage limits.
+  Jitsu Cloud (use.jitsu.com) is metered on active events - events that
+  successfully reach at least one destination; events that are captured but
+  filtered out (for example by Functions) are free and do not count. Cloud
+  offers a Free tier, a paid Business tier with per-event and per-sync
+  overages, and a custom Enterprise tier. Private Cloud and On-Premise
+  deployment options are also offered.
+notes: >-
+  Pricing reflects the public jitsu.com/pricing page at the time of writing
+  and may change; verify current included volumes and overage rates on
+  reconciliation. reconciled is false because exact retention and some
+  overage details are not fully confirmed.
+sources:
+- https://jitsu.com/pricing
+- https://jitsu.com/docs
+- https://github.com/jitsucom/jitsu
+plans:
+- id: jitsu-open-source
+  name: Open Source (Self-Hosted)
+  type: free
+  description: >-
+    MIT-licensed self-hosted Jitsu. Free forever with no usage limits; you
+    run and operate the infrastructure yourself.
+  entries:
+  - label: Self-Hosted Events
+    name: oss_events
+    type: unlimited
+    metric: events
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: free (self-hosted, MIT license)
+    userMultiplied: false
+  elements:
+  - name: Event Ingestion API
+  - name: Bulk / Batch API
+  - name: Configuration / Management (Console)
+- id: jitsu-cloud-free
+  name: Free
+  type: free
+  description: >-
+    Jitsu Cloud entry tier with a monthly included volume of active events
+    and limited connector syncs.
+  entries:
+  - label: Included Active Events
+    name: free_active_events
+    type: usage
+    metric: events
+    limit: 200000
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $0 (200k active events/mo included)
+    userMultiplied: false
+  - label: Daily Active Syncs
+    name: free_syncs
+    type: usage
+    metric: syncs
+    limit: 1
+    timeFrame: day
+    geo: global
+    unit: 1
+    price: up to 1 daily active sync
+    userMultiplied: false
+  elements:
+  - name: Event Ingestion API
+  - name: Bulk / Batch API
+- id: jitsu-cloud-business
+  name: Business
+  type: paid
+  description: >-
+    Most popular Jitsu Cloud tier with a larger included event volume and
+    metered overages on both events and connector syncs.
+  entries:
+  - label: Base Subscription
+    name: business_base
+    type: flat
+    metric: subscription
+    limit: 1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: $99 per month
+    userMultiplied: false
+  - label: Included Active Events
+    name: business_active_events
+    type: usage
+    metric: events
+    limit: 2000000
+    timeFrame: month
+    geo: global
+    unit: 1000000
+    price: 2M events/mo included, then $40 per additional 1M events
+    userMultiplied: false
+  - label: Monthly Active Syncs
+    name: business_syncs
+    type: usage
+    metric: syncs
+    limit: 5
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: up to 5 monthly syncs, then $20 per additional monthly active sync
+    userMultiplied: false
+  elements:
+  - name: Event Ingestion API
+  - name: Bulk / Batch API
+  - name: Connectors / Syncs
+- id: jitsu-cloud-enterprise
+  name: Enterprise
+  type: enterprise
+  description: >-
+    Custom Jitsu Cloud, Private Cloud, or On-Premise agreement with custom
+    event volumes, unlimited syncs, and negotiated terms. Contact Jitsu.
+  entries:
+  - label: Enterprise Agreement
+    name: enterprise
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: custom (contact sales)
+    userMultiplied: false
+  elements:
+  - name: Custom Event Volume
+  - name: Unlimited Monthly Active Syncs
+  - name: Private Cloud / On-Premise
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

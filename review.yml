@@ -1,0 +1,78 @@
+aid: jitsu
+name: Jitsu
+review:
+  question: Does Jitsu expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was created. Jitsu's documented public surface is an
+    HTTP event ingestion API (synchronous request/response). There is no
+    documented WebSocket, Server-Sent Events, or other event-driven streaming
+    transport on Jitsu's public ingestion API, so there is no in-scope
+    asynchronous surface to model.
+findings:
+  summary: |
+    Jitsu does not publish a documented public WebSocket API. Jitsu is a
+    real-time event data pipeline, but "real-time" refers to its internal
+    streaming/processing of events, not a WebSocket interface for clients.
+    Clients send events over plain HTTPS to POST /api/s/{type} (and the
+    server-to-server variant /api/s/s2s/{type}), batch via POST /v1/batch
+    (Segment-compatible), and bulk-load via POST /api/s/bulk. All ingestion
+    is synchronous HTTP. No ws:// or wss:// endpoint is documented for
+    ingestion or configuration in either the self-hosted (MIT) distribution
+    or Jitsu Cloud.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://use.jitsu.com
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented for Jitsu ingestion or configuration.
+    - protocol: SSE
+      scheme: https
+      documented: false
+      note: No Server-Sent Events streaming surface is documented on the public ingestion API.
+  endpointsConfirmedRest:
+    - POST https://use.jitsu.com/api/s/{type}
+    - POST https://use.jitsu.com/api/s/s2s/{type}
+    - POST https://use.jitsu.com/v1/batch
+    - POST https://use.jitsu.com/api/s/bulk
+  auth:
+    - method: X-Write-Key header (keyId:keySecret)
+    - method: HTTP Basic auth (Write Key as username)
+    - method: writeKey query parameter
+  deploymentModels:
+    - name: Open Source (Self-Hosted)
+      license: MIT
+      note: github.com/jitsucom/jitsu; same HTTP ingestion paths on your own domain; no usage limits.
+    - name: Jitsu Cloud
+      host: use.jitsu.com
+      note: Managed; metered on active events (events delivered to a destination).
+sources:
+  - url: https://jitsu.com/docs/sending-data/http
+    type: Documentation
+    note: Documents POST /api/s/{type}, /v1/batch, and Write Key auth (X-Write-Key header, Basic, query param). All HTTPS REST.
+  - url: https://jitsu.com/pricing
+    type: Documentation
+    note: Cloud plans (Free 200k events/mo, Business $99/mo + overage, Enterprise custom) and free self-hosted MIT option.
+  - url: https://github.com/jitsucom/jitsu
+    type: SourceCode
+    note: MIT-licensed source; Ingest service (Go) provides the HTTP ingestion API; no WebSocket transport.
+  - url: https://classic.jitsu.com/docs/sending-data/bulk-api
+    type: Documentation
+    note: Bulk archive uploads (~50k events/request, multipart "file", fallback=true to skip malformed events).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket or other event-driven streaming protocol surface exists on
+    Jitsu's public API, so no AsyncAPI document was authored. The OpenAPI
+    document captures the synchronous HTTP ingestion and batch/bulk endpoints
+    with Write Key authentication.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

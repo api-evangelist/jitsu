@@ -1,0 +1,214 @@
+{
+  "item": [
+    {
+      "id": "a1f0c2d3-1111-4a01-8a01-000000000001",
+      "name": "Ingestion",
+      "description": {
+        "content": "Real-time single-event ingestion endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1f0c2d3-1111-4a01-8a01-000000000010",
+          "name": "Ingest a track event.",
+          "request": {
+            "name": "Ingest a track event.",
+            "description": {},
+            "url": {
+              "path": ["api", "s", "track"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Write-Key", "value": "{{writeKey}}" }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"track\",\n  \"event\": \"Signup\",\n  \"userId\": \"user-123\",\n  \"properties\": { \"plan\": \"business\" }\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a1f0c2d3-1111-4a01-8a01-000000000011",
+          "name": "Ingest an identify event.",
+          "request": {
+            "name": "Ingest an identify event.",
+            "description": {},
+            "url": {
+              "path": ["api", "s", "identify"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Write-Key", "value": "{{writeKey}}" }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"identify\",\n  \"userId\": \"user-123\",\n  \"traits\": { \"email\": \"user@example.com\" }\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a1f0c2d3-1111-4a01-8a01-000000000012",
+          "name": "Ingest a page event.",
+          "request": {
+            "name": "Ingest a page event.",
+            "description": {},
+            "url": {
+              "path": ["api", "s", "page"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Write-Key", "value": "{{writeKey}}" }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"page\",\n  \"anonymousId\": \"anon-abc\",\n  \"properties\": { \"path\": \"/pricing\" }\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a1f0c2d3-1111-4a01-8a01-000000000013",
+          "name": "Ingest a server-to-server event.",
+          "request": {
+            "name": "Ingest a server-to-server event.",
+            "description": {},
+            "url": {
+              "path": ["api", "s", "s2s", "track"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Write-Key", "value": "{{writeKey}}" }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"track\",\n  \"event\": \"OrderCompleted\",\n  \"userId\": \"user-123\"\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a1f0c2d3-2222-4a01-8a01-000000000002",
+      "name": "Batch",
+      "description": {
+        "content": "Batch and bulk ingestion endpoints.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a1f0c2d3-2222-4a01-8a01-000000000020",
+          "name": "Ingest a batch of events (Segment-compatible).",
+          "request": {
+            "name": "Ingest a batch of events (Segment-compatible).",
+            "description": {},
+            "url": {
+              "path": ["v1", "batch"],
+              "host": ["{{baseUrl}}"],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "X-Write-Key", "value": "{{writeKey}}" }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"batch\": [\n    { \"type\": \"track\", \"event\": \"Signup\", \"userId\": \"user-123\" },\n    { \"type\": \"page\", \"anonymousId\": \"anon-abc\" }\n  ]\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          },
+          "response": []
+        },
+        {
+          "id": "a1f0c2d3-2222-4a01-8a01-000000000021",
+          "name": "Bulk-load an archive of events.",
+          "request": {
+            "name": "Bulk-load an archive of events.",
+            "description": {},
+            "url": {
+              "path": ["api", "s", "bulk"],
+              "host": ["{{baseUrl}}"],
+              "query": [
+                { "key": "fallback", "value": "true" }
+              ],
+              "variable": []
+            },
+            "header": [
+              { "key": "X-Write-Key", "value": "{{writeKey}}" }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "file", "type": "file", "src": [] }
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://use.jitsu.com",
+      "key": "baseUrl"
+    },
+    {
+      "type": "string",
+      "value": "keyId:keySecret",
+      "key": "writeKey"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "X-Write-Key" },
+      { "key": "value", "value": "{{writeKey}}" },
+      { "key": "in", "value": "header" }
+    ]
+  },
+  "info": {
+    "_postman_id": "a1f0c2d3-0000-4a01-8a01-000000000000",
+    "name": "Jitsu Event Ingestion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "HTTP event ingestion API for Jitsu, the open-source real-time event data pipeline (Segment alternative). Send events to POST /api/s/{type}, batch via POST /v1/batch, and bulk-load via POST /api/s/bulk, authenticated with a Write Key.\n\nWebsite: https://jitsu.com/",
+      "type": "text/plain"
+    }
+  }
+}
