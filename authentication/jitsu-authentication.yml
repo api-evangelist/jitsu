@@ -1,0 +1,23 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/jitsu-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: WriteKeyHeader
+  type: apiKey
+  in: header
+  parameter: X-Write-Key
+  description: Write Key in the form keyId:keySecret.
+  sources:
+  - openapi/jitsu-openapi.yml
+- name: WriteKeyBasic
+  type: http
+  scheme: basic
+  description: HTTP Basic auth with the Write Key as the username (password empty).
+  sources:
+  - openapi/jitsu-openapi.yml

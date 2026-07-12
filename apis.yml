@@ -93,6 +93,12 @@ apis:
     broadly published public REST contract, so it is documented here at the platform
     level.
 common:
+- type: TrustCenter
+  url: security/jitsu-trust-center.yml
+- type: DomainSecurity
+  url: security/jitsu-domain-security.yml
+- type: Authentication
+  url: authentication/jitsu-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/jitsucom
 - type: LinkedIn
