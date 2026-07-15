@@ -93,6 +93,8 @@ apis:
     broadly published public REST contract, so it is documented here at the platform
     level.
 common:
+- type: AgenticAccess
+  url: agentic-access/jitsu-agentic-access.yml
 - type: TrustCenter
   url: security/jitsu-trust-center.yml
 - type: DomainSecurity
