@@ -8,7 +8,20 @@ description: Jitsu is an open-source, real-time event data pipeline and customer
   available as MIT-licensed self-hosted software (github.com/jitsucom/jitsu) and as
   a managed Jitsu Cloud (use.jitsu.com); both expose the same HTTP event ingestion
   API authenticated with a Write Key.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/jitsu.png
 tags:
 - Event Data
 - CDP
@@ -20,78 +33,46 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: jitsu:event-ingestion-api
-  name: Jitsu Event Ingestion API (Track / Identify / Page)
-  tags:
-  - Event Data
-  - Ingestion
-  - Track
-  - Identify
-  - Page
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: jitsu:jitsu-batch-api
+  name: Jitsu Batch API
+  description: The Batch API from Jitsu — 2 operation(s) for batch.
   humanURL: https://jitsu.com/docs/sending-data/http
   baseURL: https://use.jitsu.com
-  properties:
-  - url: https://jitsu.com/docs/sending-data/http
-    type: Documentation
-  - url: https://jitsu.com/docs/sending-data/http
-    type: APIReference
-  - url: openapi/jitsu-openapi.yml
-    type: OpenAPI
-  - url: collections/jitsu.postman_collection.json
-    type: PostmanCollection
-  - url: collections/jitsu.opencollection.json
-    type: OpenCollection
-  description: Real-time event ingestion endpoint at POST /api/s/{type} (and the
-    server-to-server variant /api/s/s2s/{type}) for page, track, identify, and group
-    events. Payloads follow the Segment-style event shape (type, event, properties,
-    userId, anonymousId, context). Authenticated with a Write Key passed via the
-    X-Write-Key header, HTTP Basic auth, or a writeKey query parameter.
-- aid: jitsu:bulk-batch-api
-  name: Jitsu Bulk / Batch API
   tags:
-  - Event Data
-  - Bulk
   - Batch
-  - Ingestion
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/jitsu-batch-api-openapi.yml
+  - type: Documentation
+    url: https://jitsu.com/docs/sending-data/http
+  - type: APIReference
+    url: https://jitsu.com/docs/sending-data/http
+  - type: PostmanCollection
+    url: collections/jitsu.postman_collection.json
+  - type: OpenCollection
+    url: collections/jitsu.opencollection.json
+  - type: Documentation
+    url: https://jitsu.com/docs
+- aid: jitsu:jitsu-ingestion-api
+  name: Jitsu Ingestion API
+  description: The Ingestion API from Jitsu — 2 operation(s) for ingestion.
   humanURL: https://jitsu.com/docs/sending-data/http
   baseURL: https://use.jitsu.com
-  properties:
-  - url: https://jitsu.com/docs/sending-data/http
-    type: Documentation
-  - url: openapi/jitsu-openapi.yml
-    type: OpenAPI
-  - url: collections/jitsu.postman_collection.json
-    type: PostmanCollection
-  - url: collections/jitsu.opencollection.json
-    type: OpenCollection
-  description: Batch ingestion via POST /v1/batch using the Segment-compatible batch
-    envelope (a batch array of events), plus a bulk archive endpoint POST /api/s/bulk
-    that accepts large multipart uploads of events for synchronous loading. Useful
-    for server-side backfills and high-volume sends in a single request.
-- aid: jitsu:configuration-management-api
-  name: Jitsu Configuration / Management
   tags:
-  - Configuration
-  - Management
-  - Sources
-  - Destinations
-  - Connections
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://jitsu.com/docs
-  baseURL: https://use.jitsu.com
+  - Ingestion
   properties:
-  - url: https://jitsu.com/docs
-    type: Documentation
-  - url: openapi/jitsu-openapi.yml
-    type: OpenAPI
-  description: Configuration surface for managing workspaces, sites/streams, write
-    keys, destinations, and connections. In self-hosted Jitsu this is backed by the
-    Console application and its configuration store; in Jitsu Cloud it is managed
-    through the use.jitsu.com console. Programmatic management is not a stable,
-    broadly published public REST contract, so it is documented here at the platform
-    level.
+  - type: OpenAPI
+    url: openapi/jitsu-ingestion-api-openapi.yml
+  - type: Documentation
+    url: https://jitsu.com/docs/sending-data/http
+  - type: APIReference
+    url: https://jitsu.com/docs/sending-data/http
+  - type: PostmanCollection
+    url: collections/jitsu.postman_collection.json
+  - type: OpenCollection
+    url: collections/jitsu.opencollection.json
+  - type: Documentation
+    url: https://jitsu.com/docs
 common:
 - type: AgenticAccess
   url: agentic-access/jitsu-agentic-access.yml
