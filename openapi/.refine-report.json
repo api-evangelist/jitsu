@@ -1,0 +1,16 @@
+{
+  "provider": "jitsu",
+  "sources": [
+    "jitsu-batch-api-openapi.yml",
+    "jitsu-ingestion-api-openapi.yml"
+  ],
+  "outputs": [
+    "jitsu-batch-api-openapi.yml",
+    "jitsu-ingestion-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
