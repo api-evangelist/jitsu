@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jitsu Event Ingestion Batch API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Write-Key",
+      "value": "{{X-Write-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Batch",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest a batch of events (Segment-compatible).",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/v1/batch",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accepts a Segment-compatible batch envelope containing a batch array of events, with an optional top-level writeKey and shared context."
+        },
+        {
+          "info": {
+            "name": "Bulk-load an archive of events synchronously.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/bulk",
+            "params": [
+              {
+                "name": "fallback",
+                "value": "",
+                "type": "query",
+                "description": "When true, malformed events are skipped instead of failing the batch."
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Accepts a large multipart upload of events (field name \"file\") for synchronous loading into destinations. Supports fallback=true to skip malformed events instead of failing the whole batch."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

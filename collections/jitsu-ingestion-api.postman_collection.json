@@ -1,0 +1,437 @@
+{
+  "item": [
+    {
+      "id": "0aacad13-5347-49f5-a344-e2c03aad7126",
+      "name": "Ingestion",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c1cfc209-d9f0-4eec-b939-fc47d956858d",
+          "name": "Ingest a single browser event of the given type.",
+          "request": {
+            "name": "Ingest a single browser event of the given type.",
+            "description": {
+              "content": "Accepts a single analytics event (page, track, identify, group, or the generic event). Mirrors the Segment event shape.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "s",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "writeKey",
+                  "value": "<string>",
+                  "description": "Write Key (keyId:keySecret) as an alternative to the header or Basic auth."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) Event type."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"event\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"anonymousId\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3169\n  },\n  \"traits\": {\n    \"key_0\": 2138,\n    \"key_1\": 7490.790679710072,\n    \"key_2\": 5752.477323513978\n  },\n  \"groupId\": \"<string>\",\n  \"messageId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": 199.31465756924172,\n      \"key_1\": true,\n      \"key_2\": 3222\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": 5761.192645639421,\n      \"key_1\": false,\n      \"key_2\": 2229.5299396393884\n    },\n    \"campaign\": {\n      \"key_0\": 1731.8031587534344,\n      \"key_1\": 4676.9434126483475\n    },\n    \"screen\": {\n      \"key_0\": 3655.9162239713582\n    },\n    \"traits\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"key_0\": 776\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a599709b-17e4-46b4-9f6d-33e990509159",
+              "name": "Event accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "s",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "writeKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Event type."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"event\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"anonymousId\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"traits\": {\n    \"key_0\": \"string\",\n    \"key_1\": 7703\n  },\n  \"groupId\": \"<string>\",\n  \"messageId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": 7530.300270263885,\n      \"key_1\": false,\n      \"key_2\": 5462.809715342835,\n      \"key_3\": 5695,\n      \"key_4\": false\n    },\n    \"campaign\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": 1898.746458734598\n    },\n    \"screen\": {\n      \"key_0\": \"string\"\n    },\n    \"traits\": {\n      \"key_0\": 2715\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"receivedAt\": \"1992-06-06T02:35:15.653Z\",\n  \"key_0\": 6867.1703182771225,\n  \"key_1\": 8650\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c753c71-5705-48dd-858b-0662ea99846b",
+              "name": "Missing or invalid Write Key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "s",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "writeKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) Event type."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"event\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"anonymousId\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"traits\": {\n    \"key_0\": \"string\",\n    \"key_1\": 7703\n  },\n  \"groupId\": \"<string>\",\n  \"messageId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": 7530.300270263885,\n      \"key_1\": false,\n      \"key_2\": 5462.809715342835,\n      \"key_3\": 5695,\n      \"key_4\": false\n    },\n    \"campaign\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": 1898.746458734598\n    },\n    \"screen\": {\n      \"key_0\": \"string\"\n    },\n    \"traits\": {\n      \"key_0\": 2715\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed6242cd-1cd3-415e-94c7-02020963091d",
+          "name": "Ingest a single server-to-server event of the given type.",
+          "request": {
+            "name": "Ingest a single server-to-server event of the given type.",
+            "description": {
+              "content": "Server-to-server ingestion variant. Identical payload to /api/s/{type} but intended for trusted backend callers; IP/UserAgent are not inferred from the request and should be supplied in context.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "s",
+                "s2s",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "writeKey",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"event\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"anonymousId\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\",\n    \"key_1\": 3169\n  },\n  \"traits\": {\n    \"key_0\": 2138,\n    \"key_1\": 7490.790679710072,\n    \"key_2\": 5752.477323513978\n  },\n  \"groupId\": \"<string>\",\n  \"messageId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": 199.31465756924172,\n      \"key_1\": true,\n      \"key_2\": 3222\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": 5761.192645639421,\n      \"key_1\": false,\n      \"key_2\": 2229.5299396393884\n    },\n    \"campaign\": {\n      \"key_0\": 1731.8031587534344,\n      \"key_1\": 4676.9434126483475\n    },\n    \"screen\": {\n      \"key_0\": 3655.9162239713582\n    },\n    \"traits\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"key_0\": 776\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3885116-56e0-449d-8d1d-ab1bb6df8ae7",
+              "name": "Event accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "s",
+                    "s2s",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "writeKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"event\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"anonymousId\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"traits\": {\n    \"key_0\": \"string\",\n    \"key_1\": 7703\n  },\n  \"groupId\": \"<string>\",\n  \"messageId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": 7530.300270263885,\n      \"key_1\": false,\n      \"key_2\": 5462.809715342835,\n      \"key_3\": 5695,\n      \"key_4\": false\n    },\n    \"campaign\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": 1898.746458734598\n    },\n    \"screen\": {\n      \"key_0\": \"string\"\n    },\n    \"traits\": {\n      \"key_0\": 2715\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"receivedAt\": \"1992-06-06T02:35:15.653Z\",\n  \"key_0\": 6867.1703182771225,\n  \"key_1\": 8650\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "66efd5ce-0a14-4e38-93ee-d9c05b118477",
+              "name": "Missing or invalid Write Key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "s",
+                    "s2s",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "writeKey",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"event\": \"<string>\",\n  \"userId\": \"<string>\",\n  \"anonymousId\": \"<string>\",\n  \"properties\": {\n    \"key_0\": \"string\"\n  },\n  \"traits\": {\n    \"key_0\": \"string\",\n    \"key_1\": 7703\n  },\n  \"groupId\": \"<string>\",\n  \"messageId\": \"<string>\",\n  \"timestamp\": \"<dateTime>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": \"string\",\n      \"key_1\": \"string\"\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": 7530.300270263885,\n      \"key_1\": false,\n      \"key_2\": 5462.809715342835,\n      \"key_3\": 5695,\n      \"key_4\": false\n    },\n    \"campaign\": {\n      \"key_0\": false,\n      \"key_1\": false,\n      \"key_2\": 1898.746458734598\n    },\n    \"screen\": {\n      \"key_0\": \"string\"\n    },\n    \"traits\": {\n      \"key_0\": 2715\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://use.jitsu.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Write-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2b15680b-2e56-43c4-b367-a6a21cf2cf1b",
+    "name": "Jitsu Event Batch Ingestion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "HTTP event ingestion API for Jitsu, the open-source real-time event data pipeline and Segment alternative. Events are sent to POST /api/s/{type} (browser) or POST /api/s/s2s/{type} (server-to-server) for page, track, identify, and group events. Batches use POST /v1/batch (Segment-compatible envelope) and large archive uploads use POST /api/s/bulk. Requests are authenticated with a Write Key passed via the X-Write-Key header, HTTP Basic auth, or a writeKey query parameter. The server URL below is the Jitsu Cloud ingestion host; self-hosted deployments expose the same paths on your own domain.\n\nContact Support:\n Name: Jitsu",
+      "type": "text/plain"
+    }
+  }
+}

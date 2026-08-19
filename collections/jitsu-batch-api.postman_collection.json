@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "6b8d76b3-f2b3-423f-aaff-c565786010d7",
+      "name": "Batch",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "170b03d6-f7ab-48a8-8c0e-cef900f51f68",
+          "name": "Ingest a batch of events (Segment-compatible).",
+          "request": {
+            "name": "Ingest a batch of events (Segment-compatible).",
+            "description": {
+              "content": "Accepts a Segment-compatible batch envelope containing a batch array of events, with an optional top-level writeKey and shared context.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "batch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"batch\": [\n    {\n      \"type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"anonymousId\": \"<string>\",\n      \"properties\": {\n        \"key_0\": true,\n        \"key_1\": \"string\",\n        \"key_2\": true,\n        \"key_3\": \"string\"\n      },\n      \"traits\": {\n        \"key_0\": 6666,\n        \"key_1\": 4223\n      },\n      \"groupId\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"context\": {\n        \"library\": {\n          \"key_0\": \"string\"\n        },\n        \"ip\": \"<string>\",\n        \"userAgent\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"page\": {\n          \"key_0\": true,\n          \"key_1\": false\n        },\n        \"campaign\": {\n          \"key_0\": 5046,\n          \"key_1\": \"string\",\n          \"key_2\": false\n        },\n        \"screen\": {\n          \"key_0\": false,\n          \"key_1\": 8287.825655019997,\n          \"key_2\": \"string\"\n        },\n        \"traits\": {\n          \"key_0\": \"string\",\n          \"key_1\": 3111.729784244366,\n          \"key_2\": 65.42324242163056,\n          \"key_3\": 3188.3208809712114\n        }\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"anonymousId\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 3200\n      },\n      \"traits\": {\n        \"key_0\": false\n      },\n      \"groupId\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"context\": {\n        \"library\": {\n          \"key_0\": \"string\"\n        },\n        \"ip\": \"<string>\",\n        \"userAgent\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"page\": {\n          \"key_0\": \"string\"\n        },\n        \"campaign\": {\n          \"key_0\": 8833,\n          \"key_1\": 6764,\n          \"key_2\": true\n        },\n        \"screen\": {\n          \"key_0\": 4546,\n          \"key_1\": 480.6229203503998\n        },\n        \"traits\": {\n          \"key_0\": 4078.5336434934784,\n          \"key_1\": 5214\n        }\n      }\n    }\n  ],\n  \"writeKey\": \"<string>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": 1839,\n      \"key_1\": \"string\"\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": 8451\n    },\n    \"campaign\": {\n      \"key_0\": \"string\",\n      \"key_1\": 6804.678973417759,\n      \"key_2\": 9380,\n      \"key_3\": true,\n      \"key_4\": 5882.885955284764\n    },\n    \"screen\": {\n      \"key_0\": 1241.4714826443274,\n      \"key_1\": false\n    },\n    \"traits\": {\n      \"key_0\": \"string\",\n      \"key_1\": false,\n      \"key_2\": false\n    },\n    \"key_0\": 8457.208639703696,\n    \"key_1\": 5324.67883261538,\n    \"key_2\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "82f71811-a92a-4db3-9f92-d6f3895427ac",
+              "name": "Batch accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"batch\": [\n    {\n      \"type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"anonymousId\": \"<string>\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 201\n      },\n      \"traits\": {\n        \"key_0\": 2008.3068773974433,\n        \"key_1\": true\n      },\n      \"groupId\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"context\": {\n        \"library\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"ip\": \"<string>\",\n        \"userAgent\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"page\": {\n          \"key_0\": \"string\",\n          \"key_1\": 6642\n        },\n        \"campaign\": {\n          \"key_0\": \"string\"\n        },\n        \"screen\": {\n          \"key_0\": true,\n          \"key_1\": \"string\"\n        },\n        \"traits\": {\n          \"key_0\": true,\n          \"key_1\": true,\n          \"key_2\": \"string\"\n        },\n        \"key_0\": 9638\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"anonymousId\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 1583,\n        \"key_1\": true,\n        \"key_2\": 8377.647559407338\n      },\n      \"traits\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5870,\n        \"key_2\": true,\n        \"key_3\": 1091.8284635218579\n      },\n      \"groupId\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"context\": {\n        \"library\": {\n          \"key_0\": false,\n          \"key_1\": 837\n        },\n        \"ip\": \"<string>\",\n        \"userAgent\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"page\": {\n          \"key_0\": 5158\n        },\n        \"campaign\": {\n          \"key_0\": true,\n          \"key_1\": \"string\"\n        },\n        \"screen\": {\n          \"key_0\": 8728,\n          \"key_1\": 9513,\n          \"key_2\": 9490\n        },\n        \"traits\": {\n          \"key_0\": \"string\"\n        }\n      }\n    }\n  ],\n  \"writeKey\": \"<string>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": 9640.073569877315\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": true\n    },\n    \"campaign\": {\n      \"key_0\": \"string\"\n    },\n    \"screen\": {\n      \"key_0\": 3383.7833985810994\n    },\n    \"traits\": {\n      \"key_0\": 3578,\n      \"key_1\": 7894\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"receivedAt\": \"1981-06-09T13:48:39.501Z\",\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "43181cf2-3857-4e52-bb2e-c5301a83ff20",
+              "name": "Missing or invalid Write Key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "batch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"batch\": [\n    {\n      \"type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"anonymousId\": \"<string>\",\n      \"properties\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\",\n        \"key_2\": 201\n      },\n      \"traits\": {\n        \"key_0\": 2008.3068773974433,\n        \"key_1\": true\n      },\n      \"groupId\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"context\": {\n        \"library\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\"\n        },\n        \"ip\": \"<string>\",\n        \"userAgent\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"page\": {\n          \"key_0\": \"string\",\n          \"key_1\": 6642\n        },\n        \"campaign\": {\n          \"key_0\": \"string\"\n        },\n        \"screen\": {\n          \"key_0\": true,\n          \"key_1\": \"string\"\n        },\n        \"traits\": {\n          \"key_0\": true,\n          \"key_1\": true,\n          \"key_2\": \"string\"\n        },\n        \"key_0\": 9638\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"event\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"anonymousId\": \"<string>\",\n      \"properties\": {\n        \"key_0\": 1583,\n        \"key_1\": true,\n        \"key_2\": 8377.647559407338\n      },\n      \"traits\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5870,\n        \"key_2\": true,\n        \"key_3\": 1091.8284635218579\n      },\n      \"groupId\": \"<string>\",\n      \"messageId\": \"<string>\",\n      \"timestamp\": \"<dateTime>\",\n      \"context\": {\n        \"library\": {\n          \"key_0\": false,\n          \"key_1\": 837\n        },\n        \"ip\": \"<string>\",\n        \"userAgent\": \"<string>\",\n        \"locale\": \"<string>\",\n        \"page\": {\n          \"key_0\": 5158\n        },\n        \"campaign\": {\n          \"key_0\": true,\n          \"key_1\": \"string\"\n        },\n        \"screen\": {\n          \"key_0\": 8728,\n          \"key_1\": 9513,\n          \"key_2\": 9490\n        },\n        \"traits\": {\n          \"key_0\": \"string\"\n        }\n      }\n    }\n  ],\n  \"writeKey\": \"<string>\",\n  \"context\": {\n    \"library\": {\n      \"key_0\": 9640.073569877315\n    },\n    \"ip\": \"<string>\",\n    \"userAgent\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"page\": {\n      \"key_0\": true\n    },\n    \"campaign\": {\n      \"key_0\": \"string\"\n    },\n    \"screen\": {\n      \"key_0\": 3383.7833985810994\n    },\n    \"traits\": {\n      \"key_0\": 3578,\n      \"key_1\": 7894\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4c773e28-a743-4f2c-8caf-ae5d3b4ff0fd",
+          "name": "Bulk-load an archive of events synchronously.",
+          "request": {
+            "name": "Bulk-load an archive of events synchronously.",
+            "description": {
+              "content": "Accepts a large multipart upload of events (field name \"file\") for synchronous loading into destinations. Supports fallback=true to skip malformed events instead of failing the whole batch.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "s",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "fallback",
+                  "value": "false",
+                  "description": "When true, malformed events are skipped instead of failing the batch."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "Newline-delimited JSON of events to load."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bc14a85d-1ce8-4feb-a458-c428bf8a6bee",
+              "name": "Bulk load accepted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "s",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fallback",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Newline-delimited JSON of events to load.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"ok\": true,\n  \"receivedAt\": \"1981-06-09T13:48:39.501Z\",\n  \"key_0\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0e61e06d-3f74-471d-910d-07eae30ecbdd",
+              "name": "Missing or invalid Write Key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "s",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "fallback",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Write-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "Newline-delimited JSON of events to load.",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://use.jitsu.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-Write-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "dd9e77c0-33cf-4855-881e-688bfa925f68",
+    "name": "Jitsu Event Ingestion Batch API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "HTTP event ingestion API for Jitsu, the open-source real-time event data pipeline and Segment alternative. Events are sent to POST /api/s/{type} (browser) or POST /api/s/s2s/{type} (server-to-server) for page, track, identify, and group events. Batches use POST /v1/batch (Segment-compatible envelope) and large archive uploads use POST /api/s/bulk. Requests are authenticated with a Write Key passed via the X-Write-Key header, HTTP Basic auth, or a writeKey query parameter. The server URL below is the Jitsu Cloud ingestion host; self-hosted deployments expose the same paths on your own domain.\n\nContact Support:\n Name: Jitsu",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Jitsu Event Batch Ingestion API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Write-Key",
+      "value": "{{X-Write-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ingestion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingest a single browser event of the given type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path",
+                "description": "Event type."
+              },
+              {
+                "name": "writeKey",
+                "value": "",
+                "type": "query",
+                "description": "Write Key (keyId:keySecret) as an alternative to the header or Basic auth."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Accepts a single analytics event (page, track, identify, group, or the generic event). Mirrors the Segment event shape."
+        },
+        {
+          "info": {
+            "name": "Ingest a single server-to-server event of the given type.",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://use.jitsu.com/api/s/s2s/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "writeKey",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Server-to-server ingestion variant. Identical payload to /api/s/{type} but intended for trusted backend callers; IP/UserAgent are not inferred from the request and should be supplied in context."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
