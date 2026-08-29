@@ -8,6 +8,18 @@ description: Jitsu is an open-source, real-time event data pipeline and customer
   available as MIT-licensed self-hosted software (github.com/jitsucom/jitsu) and as
   a managed Jitsu Cloud (use.jitsu.com); both expose the same HTTP event ingestion
   API authenticated with a Write Key.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
