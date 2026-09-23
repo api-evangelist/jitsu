@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Jitsu Event Ingestion Batch API
-  description: HTTP event ingestion API for Jitsu, the open-source real-time event data pipeline and Segment alternative. Events are sent to POST /api/s/{type} (browser) or POST /api/s/s2s/{type} (server-to-server) for page, track, identify, and group events. Batches use POST /v1/batch (Segment-compatible envelope) and large archive uploads use POST /api/s/bulk. Requests are authenticated with a Write Key passed via the X-Write-Key header, HTTP Basic auth, or a writeKey query parameter. The server URL below is the Jitsu Cloud ingestion host; self-hosted deployments expose the same paths on your own domain.
+  description: HTTP event ingestion API for Jitsu, the open-source real-time event data pipeline and Segment alternative.
   termsOfService: https://jitsu.com/tos
   contact:
     name: Jitsu
@@ -24,7 +24,7 @@ paths:
       operationId: ingestBatch
       tags:
       - Batch
-      summary: Ingest a batch of events (Segment-compatible).
+      summary: Ingest a batch of events (Segment-compatible)
       description: Accepts a Segment-compatible batch envelope containing a batch array of events, with an optional top-level writeKey and shared context.
       requestBody:
         required: true
@@ -46,7 +46,7 @@ paths:
       operationId: ingestBulk
       tags:
       - Batch
-      summary: Bulk-load an archive of events synchronously.
+      summary: Bulk-load an archive of events synchronously
       description: Accepts a large multipart upload of events (field name "file") for synchronous loading into destinations. Supports fallback=true to skip malformed events instead of failing the whole batch.
       parameters:
       - name: fallback
@@ -78,21 +78,6 @@ paths:
           description: Missing or invalid Write Key.
 components:
   schemas:
-    Batch:
-      type: object
-      description: Segment-compatible batch envelope.
-      properties:
-        writeKey:
-          type: string
-          description: Optional top-level Write Key.
-        context:
-          $ref: '#/components/schemas/Context'
-        batch:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-      required:
-      - batch
     Context:
       type: object
       description: Contextual metadata attached to an event.
@@ -170,6 +155,21 @@ components:
           description: Event timestamp (ISO 8601).
         context:
           $ref: '#/components/schemas/Context'
+    Batch:
+      type: object
+      description: Segment-compatible batch envelope.
+      properties:
+        writeKey:
+          type: string
+          description: Optional top-level Write Key.
+        context:
+          $ref: '#/components/schemas/Context'
+        batch:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+      required:
+      - batch
   securitySchemes:
     WriteKeyHeader:
       type: apiKey

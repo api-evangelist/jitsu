@@ -1,7 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Jitsu Event Batch Ingestion API
-  description: HTTP event ingestion API for Jitsu, the open-source real-time event data pipeline and Segment alternative. Events are sent to POST /api/s/{type} (browser) or POST /api/s/s2s/{type} (server-to-server) for page, track, identify, and group events. Batches use POST /v1/batch (Segment-compatible envelope) and large archive uploads use POST /api/s/bulk. Requests are authenticated with a Write Key passed via the X-Write-Key header, HTTP Basic auth, or a writeKey query parameter. The server URL below is the Jitsu Cloud ingestion host; self-hosted deployments expose the same paths on your own domain.
+  title: Jitsu Event Ingestion API
+  description: HTTP event ingestion API for Jitsu, the open-source real-time event data pipeline and Segment alternative.
   termsOfService: https://jitsu.com/tos
   contact:
     name: Jitsu
@@ -24,7 +24,7 @@ paths:
       operationId: ingestEvent
       tags:
       - Ingestion
-      summary: Ingest a single browser event of the given type.
+      summary: Ingest a single browser event of the given type
       description: Accepts a single analytics event (page, track, identify, group, or the generic event). Mirrors the Segment event shape.
       parameters:
       - name: type
@@ -65,7 +65,7 @@ paths:
       operationId: ingestServerEvent
       tags:
       - Ingestion
-      summary: Ingest a single server-to-server event of the given type.
+      summary: Ingest a single server-to-server event of the given type
       description: Server-to-server ingestion variant. Identical payload to /api/s/{type} but intended for trusted backend callers; IP/UserAgent are not inferred from the request and should be supplied in context.
       parameters:
       - name: type
