@@ -39,7 +39,7 @@ tags:
 - CDP
 - Data Pipeline
 - Analytics
-- Open-Source
+- Open Source
 - Ingestion
 tags_raw:
 - Event Data
@@ -48,6 +48,7 @@ tags_raw:
 - Analytics
 - Open Source
 - Ingestion
+- Open-Source
 created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.23'

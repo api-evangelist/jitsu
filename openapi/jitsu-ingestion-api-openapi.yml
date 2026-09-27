@@ -101,6 +101,16 @@ paths:
           description: Missing or invalid Write Key.
 components:
   schemas:
+    IngestResponse:
+      type: object
+      description: Acknowledgement of accepted events.
+      properties:
+        ok:
+          type: boolean
+        receivedAt:
+          type: string
+          format: date-time
+      additionalProperties: true
     Context:
       type: object
       description: Contextual metadata attached to an event.
@@ -126,16 +136,6 @@ components:
         traits:
           type: object
           additionalProperties: true
-      additionalProperties: true
-    IngestResponse:
-      type: object
-      description: Acknowledgement of accepted events.
-      properties:
-        ok:
-          type: boolean
-        receivedAt:
-          type: string
-          format: date-time
       additionalProperties: true
     Event:
       type: object
