@@ -41,6 +41,7 @@ tags:
 - Analytics
 - Open Source
 - Ingestion
+- Customer Data Platform
 tags_raw:
 - Event Data
 - CDP
@@ -49,6 +50,7 @@ tags_raw:
 - Open Source
 - Ingestion
 - Open-Source
+- Customer Data Platform
 created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.23'
@@ -94,6 +96,9 @@ apis:
   - type: Documentation
     url: https://jitsu.com/docs
 common:
+- type: CapabilityMap
+  url: capabilities/jitsu-capability-edges.yml
+  name: Jitsu Business Capability Map
 - type: AgenticAccess
   url: agentic-access/jitsu-agentic-access.yml
 - type: TrustCenter
