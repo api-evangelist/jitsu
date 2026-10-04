@@ -101,42 +101,6 @@ paths:
           description: Missing or invalid Write Key.
 components:
   schemas:
-    Context:
-      type: object
-      description: Contextual metadata attached to an event.
-      properties:
-        library:
-          type: object
-          additionalProperties: true
-        ip:
-          type: string
-        userAgent:
-          type: string
-        locale:
-          type: string
-        page:
-          type: object
-          additionalProperties: true
-        campaign:
-          type: object
-          additionalProperties: true
-        screen:
-          type: object
-          additionalProperties: true
-        traits:
-          type: object
-          additionalProperties: true
-      additionalProperties: true
-    IngestResponse:
-      type: object
-      description: Acknowledgement of accepted events.
-      properties:
-        ok:
-          type: boolean
-        receivedAt:
-          type: string
-          format: date-time
-      additionalProperties: true
     Event:
       type: object
       description: A single analytics event following the Segment-style shape.
@@ -178,6 +142,42 @@ components:
           description: Event timestamp (ISO 8601).
         context:
           $ref: '#/components/schemas/Context'
+    Context:
+      type: object
+      description: Contextual metadata attached to an event.
+      properties:
+        library:
+          type: object
+          additionalProperties: true
+        ip:
+          type: string
+        userAgent:
+          type: string
+        locale:
+          type: string
+        page:
+          type: object
+          additionalProperties: true
+        campaign:
+          type: object
+          additionalProperties: true
+        screen:
+          type: object
+          additionalProperties: true
+        traits:
+          type: object
+          additionalProperties: true
+      additionalProperties: true
+    IngestResponse:
+      type: object
+      description: Acknowledgement of accepted events.
+      properties:
+        ok:
+          type: boolean
+        receivedAt:
+          type: string
+          format: date-time
+      additionalProperties: true
   securitySchemes:
     WriteKeyHeader:
       type: apiKey

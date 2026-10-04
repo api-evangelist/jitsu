@@ -78,6 +78,21 @@ paths:
           description: Missing or invalid Write Key.
 components:
   schemas:
+    Batch:
+      type: object
+      description: Segment-compatible batch envelope.
+      properties:
+        writeKey:
+          type: string
+          description: Optional top-level Write Key.
+        context:
+          $ref: '#/components/schemas/Context'
+        batch:
+          type: array
+          items:
+            $ref: '#/components/schemas/Event'
+      required:
+      - batch
     Context:
       type: object
       description: Contextual metadata attached to an event.
@@ -114,21 +129,6 @@ components:
           type: string
           format: date-time
       additionalProperties: true
-    Batch:
-      type: object
-      description: Segment-compatible batch envelope.
-      properties:
-        writeKey:
-          type: string
-          description: Optional top-level Write Key.
-        context:
-          $ref: '#/components/schemas/Context'
-        batch:
-          type: array
-          items:
-            $ref: '#/components/schemas/Event'
-      required:
-      - batch
     Event:
       type: object
       description: A single analytics event following the Segment-style shape.
