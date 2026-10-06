@@ -52,7 +52,7 @@ tags_raw:
 - Open-Source
 - Customer Data Platform
 created: '2026-06-21'
-modified: '2026-06-21'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis:
 - aid: jitsu:jitsu-batch-api
@@ -96,6 +96,8 @@ apis:
   - type: Documentation
     url: https://jitsu.com/docs
 common:
+- url: https://jitsu.com/blog
+  type: Blog
 - type: CapabilityMap
   url: capabilities/jitsu-capability-edges.yml
   name: Jitsu Business Capability Map
