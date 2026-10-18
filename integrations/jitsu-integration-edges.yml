@@ -30,7 +30,27 @@ edges:
   - namespace-domain
   detected_by: sweep-agent-tools.py
   first_seen: '2026-10-14'
+- partner_name: dbt (dbt-package-hub)
+  partner: dbt
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: dbt-package-hub
+  evidence: https://hub.getdbt.com/jitsucom/dbt-jitsu/latest/
+  mirror_of: dbt/integrations/dbt-integration-edges.yml
+  apps:
+  - Jitsu
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: dbt package
 generated: '2026-10-14'
 method: searched
 checked:
+- dbt/integrations/dbt-integration-edges.yml
 - https://registry.modelcontextprotocol.io/v0/servers
+source:
+- dbt/integrations/dbt-integration-edges.yml
