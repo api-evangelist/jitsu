@@ -1,4 +1,4 @@
-# Jitsu (jitsu)
+# Jitsu
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,99 +66,127 @@
 
 Jitsu is an open-source, real-time event data pipeline and customer data platform (a Segment alternative). It collects events from websites, apps, and servers and streams them to data warehouses and other destinations. Jitsu is available as MIT-licensed self-hosted software (github.com/jitsucom/jitsu) and as a managed Jitsu Cloud (use.jitsu.com); both expose the same HTTP event ingestion API authenticated with a Write Key.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/jitsu/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/jitsu/refs/heads/main/apis.yml)
+**Areas:** Event Data · CDP · Data Pipeline · Analytics · Open Source · Ingestion · Customer Data Platform
 
-## Tags
+## Jitsu on APIs.io
 
-- Event Data
-- CDP
-- Data Pipeline
-- Analytics
-- Open Source
-- Ingestion
+Everything profiled for Jitsu is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/jitsu/](https://apis.io/providers/jitsu/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (2)
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+- [Jitsu Batch API](https://apis.io/apis/jitsu/jitsu-batch-api/) — The Batch API from Jitsu — 2 operation(s) for batch.
+- [Jitsu Ingestion API](https://apis.io/apis/jitsu/jitsu-ingestion-api/) — The Ingestion API from Jitsu — 2 operation(s) for ingestion.
 
-## APIs
+### Published properties
 
-### Jitsu Event Ingestion API (Track / Identify / Page)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Real-time event ingestion endpoint at POST /api/s/{type} (and the server-to-server variant /api/s/s2s/{type}) for page, track, identify, and group events. Payloads follow the Segment-style event shape (type, event, properties, userId, anonymousId, context). Authenticated with a Write Key passed via the X-Write-Key header, HTTP Basic auth, or a writeKey query parameter.
+#### MCP servers (1)
 
-- **Human URL:** [https://jitsu.com/docs/sending-data/http](https://jitsu.com/docs/sending-data/http)
-- **Base URL:** `https://use.jitsu.com`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [jitsu](https://apis.io/servers/jitsu/jitsu/)
 
-- Event Data
-- Ingestion
-- Track
-- Identify
-- Page
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://jitsu.com/docs/sending-data/http)
-- [API Reference](https://jitsu.com/docs/sending-data/http)
-- [OpenAPI](openapi/jitsu-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/jitsu.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jitsu.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Jitsu Agentic Access](https://apis.io/agentic-access/jitsu/jitsu-agentic-access/)
 
-### Jitsu Bulk / Batch API
+#### Collections (3)
 
-Batch ingestion via POST /v1/batch using the Segment-compatible batch envelope (a batch array of events), plus a bulk archive endpoint POST /api/s/bulk that accepts large multipart uploads of events for synchronous loading. Useful for server-side backfills and high-volume sends in a single request.
+Postman and Open Collection request collections.
 
-- **Human URL:** [https://jitsu.com/docs/sending-data/http](https://jitsu.com/docs/sending-data/http)
-- **Base URL:** `https://use.jitsu.com`
+- [Jitsu Event Ingestion API](https://apis.io/collections/jitsu/open-jitsu/)
+- [Jitsu Event Ingestion Batch API](https://apis.io/collections/jitsu/open-jitsu-batch-api/)
+- [Jitsu Event Batch Ingestion API](https://apis.io/collections/jitsu/open-jitsu-ingestion-api/)
 
-#### Tags
+#### Security (3)
 
-- Event Data
-- Bulk
-- Batch
-- Ingestion
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [Jitsu Authentication](https://apis.io/security/jitsu/jitsu-authentication/)
+- [Jitsu Domain Security](https://apis.io/security/jitsu/jitsu-domain-security/)
+- [Jitsu Trust Center](https://apis.io/security/jitsu/jitsu-trust-center/)
 
-- [Documentation](https://jitsu.com/docs/sending-data/http)
-- [OpenAPI](openapi/jitsu-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/jitsu.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/jitsu.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (1)
 
-### Jitsu Configuration / Management
+Published plans, tiers and prices.
 
-Configuration surface for managing workspaces, sites/streams, write keys, destinations, and connections. In self-hosted Jitsu this is backed by the Console application and its configuration store; in Jitsu Cloud it is managed through the use.jitsu.com console. Programmatic management is not a stable, broadly published public REST contract, so it is documented here at the platform level.
+- [Jitsu Plans Pricing](https://apis.io/plans/jitsu/jitsu-plans-pricing/)
 
-- **Human URL:** [https://jitsu.com/docs](https://jitsu.com/docs)
-- **Base URL:** `https://use.jitsu.com`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Configuration
-- Management
-- Sources
-- Destinations
-- Connections
+- [Jitsu Rate Limits](https://apis.io/rate-limits/jitsu/jitsu-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://jitsu.com/docs)
-- [OpenAPI](openapi/jitsu-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+What the API costs to run, by operation.
 
-## Common Properties
+- [Jitsu Finops](https://apis.io/finops/jitsu/jitsu-finops/)
 
-- [GitHub Organization](https://github.com/jitsucom)
-- [LinkedIn](https://www.linkedin.com/company/jitsu-com)
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://jitsu.com/)
 - [Documentation](https://jitsu.com/docs)
-- [Plans](plans/jitsu-plans-pricing.yml)
-- [Rate Limits](rate-limits/jitsu-rate-limits.yml)
-- [Fin Ops](finops/jitsu-finops.yml)
+- [Blog](https://jitsu.com/blog)
+- [GitHub](https://github.com/jitsucom)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 29.9** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 50.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 32.1 |
+| Access clarity | 15.8 |
+
+**Agent readiness 43.9** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/jitsu/](https://apis.io/providers/jitsu/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Jitsu: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/jitsu/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
